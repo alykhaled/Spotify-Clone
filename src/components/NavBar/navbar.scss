@@ -1,0 +1,44 @@
+@use '../../utils.scss' as *;
+
+.NavBar {
+    width: 276px;
+    height: 100%;
+    background: $greyDark;
+    .logo{
+        padding: 24px;
+        svg{
+            max-width: 131px;
+        }
+    }
+    ul {
+        margin: 0;
+        padding: 0px 8px;
+        li {
+            color: $greyText;
+            list-style-type: none;
+            border-radius: 5px;
+            padding: 0.7rem;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            &.active{
+                background: $greyText;
+                color: white;
+            }
+            
+            &:hover{
+                color: white;
+            }
+        }
+    }
+
+    .cookies {
+        font-size: 0.6rem;
+        color: $greyText;
+        text-align: center;
+        margin-top: calc(70vh);
+        padding: 1rem;
+        span{
+            display: block;
+        }
+    }
+}
