@@ -48,8 +48,27 @@ router.delete("/:id" ,verify,async (req,res) => {
 
     }
 });
-//GET
 
+//GET
+router.delete("/find/:id" ,verify,async (req,res) => {
+    if (req.body.id === req.params.id ) 
+    {
+        try 
+        {
+            await User.findByIdAndDelete(req.params.id);
+            res.status(200).send("User Deleted!");
+        } 
+        catch (error) 
+        {
+            res.status(500).send(error);
+        }
+     
+    }
+    else {
+        res.status(403).send("You can only update your account!");
+
+    }
+});
 //Get all
 
 module.exports = router;

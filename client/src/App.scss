@@ -4,6 +4,8 @@
     margin: 0;
     height: calc(100vh - 90px);
     background: $greyLight;
+    display: flex;
+    flex-direction: row;
 }
 
 .outerWrap{
