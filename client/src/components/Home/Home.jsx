@@ -35,7 +35,7 @@ function Home() {
                 <Card />
                 <Card />
             </div>
-            {/* <h1>Popular Artists</h1>
+            <h1>Popular Artists</h1>
             <div className="list">
                 <Card type="artist"/>
                 <Card type="artist"/>
@@ -54,7 +54,7 @@ function Home() {
                 <Card type="artist"/>
                 <Card type="artist"/>
                 <Card type="artist"/>
-            </div> */}
+            </div>
         </div>
     )
 }
