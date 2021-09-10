@@ -18,7 +18,6 @@ export default function NavBar() {
                 <Link to="/library">
                     <li>Your Library</li>
                 </Link>
-                
             </ul>
             {/* <div className="cookies">
                 <span>Cookies</span>

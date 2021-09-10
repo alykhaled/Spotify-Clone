@@ -50,24 +50,18 @@ router.delete("/:id" ,verify,async (req,res) => {
 });
 
 //GET
-router.delete("/find/:id" ,verify,async (req,res) => {
-    if (req.body.id === req.params.id ) 
+router.get("/find/:id" ,async (req,res) => {
+    try 
     {
-        try 
-        {
-            await User.findByIdAndDelete(req.params.id);
-            res.status(200).send("User Deleted!");
-        } 
-        catch (error) 
-        {
-            res.status(500).send(error);
-        }
-     
+        const user = await User.findById(req.params.id);
+        const { password, ...info } = user._doc;
+        res.status(200).send(info);
+    } 
+    catch (error) 
+    {
+        res.status(500).send(error);
     }
-    else {
-        res.status(403).send("You can only update your account!");
-
-    }
+    
 });
 //Get all
 
