@@ -20,10 +20,10 @@ export default function NavBar() {
                 </Link>
                 
             </ul>
-            <div className="cookies">
+            {/* <div className="cookies">
                 <span>Cookies</span>
                 <span>Privacy</span>
-            </div>
+            </div> */}
         </div>
     )
 }

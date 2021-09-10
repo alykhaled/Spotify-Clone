@@ -3,6 +3,7 @@
 .NavBar {
     width: 276px;
     height: 100%;
+    
     background: $greyDark;
     .logo{
         padding: 24px;
@@ -13,7 +14,11 @@
     ul {
         margin: 0;
         padding: 0px 8px;
+        a{
+            text-decoration: none;
+        }
         li {
+            
             color: $greyText;
             list-style-type: none;
             border-radius: 5px;
