@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const authRoute = require('./routes/auth');
 const userRoute = require('./routes/users');
+const artistRoute = require('./routes/artist');
 
 dotenv.config();
 
@@ -19,6 +20,8 @@ mongoose
 app.use(express.json());
 app.use("/api/auth",authRoute);
 app.use("/api/user",userRoute);
+app.use("/api/artist",artistRoute);
+
 const cors=require("cors");
 const corsOptions ={
    origin:'*', 
