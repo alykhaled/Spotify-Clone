@@ -10,20 +10,21 @@ import Home from './components/Home/Home';
 function App() {
   return (
       <div className="outerWrap">
-        <div className="main">
-        <Router>
-          <NavBar />
-          <div className="App">
-              <Switch>
-                <Route path="/search">
-                  seach
-                </Route>
-                <Route path="/">
-                  <Home />
-                </Route>
-              </Switch>    
-          </div>
-        </Router>
+        <div className="App">
+          <Router>
+            <NavBar />
+            <Switch>
+              <Route path="/search">
+                seach
+              </Route>
+              <Route path="/artist">
+                art
+              </Route>
+              <Route path="/">
+                <Home />
+              </Route>
+            </Switch>    
+          </Router>
         </div>
         <div className="musicControls">
           Music Controls

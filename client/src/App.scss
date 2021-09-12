@@ -3,26 +3,18 @@
 
 
 .outerWrap{
+    background: grey;
     height: 100%;
- 
-    .main{
+    min-height: 100%;
+    .App{
+        height: calc(100vh - 90px);
+        background: $greyLight;
         display: flex;
- 
-        .App{
-            margin: 0;
-            // height: 100vh;
-            height: fit-content;
-
-            // min-height: calc(100vh - 90px);
-            background: $greyLight;
-            width: 100%;
-            flex-direction: row;
-            font-family: sans-serif;
-        
-        }
+        font-family: sans-serif;
+    
     }
  }
-
+ 
 .musicControls {
     background: $greyLighter;
     text-align: center;
