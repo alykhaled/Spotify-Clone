@@ -1,18 +1,36 @@
 @use './utils.scss' as *;
 
-.App{
-    margin: 0;
-    height: calc(100vh - 90px);
-    min-height: calc(100vh - 90px);
-    background: $greyLight;
-    display: flex;
-    flex-direction: row;
-    font-family: sans-serif;
 
-}
 
 .outerWrap{
+    height: 100%;
+ 
+    .main{
+        display: flex;
+ 
+        .App{
+            margin: 0;
+            // height: 100vh;
+            height: fit-content;
+
+            // min-height: calc(100vh - 90px);
+            background: $greyLight;
+            width: 100%;
+            flex-direction: row;
+            font-family: sans-serif;
+        
+        }
+    }
+ }
+
+.musicControls {
     background: $greyLighter;
-    height: 100vh;
-    min-height: 100%;
+    text-align: center;
+    height: 90px;    
+    display: flex;
+    position: fixed;
+    width: 100%;
+    top: calc(100vh - 90px);
+    align-items: center;
+    justify-items: center;
 }

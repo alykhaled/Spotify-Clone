@@ -40,19 +40,17 @@ function Home() {
                     <Card type="artist" data={card}/>
                 ))};
             </div>
-            {/* <h1>Popular Albums</h1>
+            <h1>Popular Albums</h1>
             <div className="list">
-                <Card />
-                <Card />
-                <Card />
-                <Card />
+                {cardData.map(card=>(
+                    <Card data={card}/>
+                ))};
             </div>
             <div className="list">
-                <Card type="artist"/>
-                <Card type="artist"/>
-                <Card type="artist"/>
-                <Card type="artist"/>
-            </div> */}
+                {cardData.map(card=>(
+                    <Card data={card}/>
+                ))};
+            </div>
         </div>
     )
 }

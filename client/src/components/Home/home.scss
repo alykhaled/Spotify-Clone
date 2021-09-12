@@ -5,15 +5,16 @@
         color: white;
     }
     // background-color: white;
- 
+    height: fit-content;
     display: flex;
     flex-direction: column;
-
+    background: $greyLight;
     .list{
         width: 100%;
         display: flex;
-        margin: 32px;
-
+        margin: 32px 0px;
+        margin-left: 32px;
+        max-width: 100vh;
         .card{
             width: 178px;
             height: 288px;

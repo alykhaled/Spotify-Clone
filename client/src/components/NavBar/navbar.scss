@@ -2,7 +2,7 @@
 
 .NavBar {
     min-width: 276px;
-    height: 100%;
+    min-height: 200px;
     
     background: $greyDark;
     .logo{
@@ -28,6 +28,7 @@
             cursor: pointer;
             transition: all 0.3s ease-in-out;
             display: flex;
+            
             &.active{
                 background: $greyText;
                 color: white;
