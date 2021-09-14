@@ -6,7 +6,8 @@ const TrackScheme = new mongoose.Schema(
         image: {type: String, default: "https://via.placeholder.com/250x250"},       
         link: {type: String, required: false},
         track_number: {type: String, required: false},
-        artist: {type: mongoose.Schema.Types.ObjectId , ref: "Album",required: false}
+        album: {type: mongoose.Schema.Types.ObjectId , ref: "Album",required: false},
+        artist: {type: mongoose.Schema.Types.ObjectId , ref: "Artist",required: false}
     }
 )
 
