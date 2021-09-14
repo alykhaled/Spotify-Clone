@@ -3,7 +3,7 @@ const Album = require('../models/Album');
 const verify = require('../verifyToken');
 
 //Create
-router.post("/" ,verify,async (req,res) => {
+router.post("/",async (req,res) => {
     const newAlbum = new Album({
         name:req.body.name,
         image:req.body.image,
