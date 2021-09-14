@@ -22,14 +22,10 @@ app.use("/api/auth",authRoute);
 app.use("/api/user",userRoute);
 app.use("/api/artist",artistRoute);
 
-const cors=require("cors");
-const corsOptions ={
-   origin:'*', 
-   credentials:true,            //access-control-allow-credentials:true
-   optionSuccessStatus:200,
-}
+app.get("/",(req,res) => {
+    res.send("HELLO")
+})
 
-app.use(cors(corsOptions)) // Use this after the variable declaration
-app.listen(8000, () => {
+app.listen(8080, () => {
     console.log('Server is running on port 8000');
 });
