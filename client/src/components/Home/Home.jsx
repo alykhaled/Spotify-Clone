@@ -4,16 +4,18 @@ import Card from '../Card/Card';
 import './home.scss';
 import axios from "axios";
 const dotenv = require('dotenv');
-dotenv.config();
-const API = process.env.API;
 
 function Home() {
+    dotenv.config();
+    const API = process.env.REACT_APP_API;
     const [cardData,setRes] = useState([]);
     useEffect(() => {
+
         const getArtists = async () => 
         {
             try {
-                const res = await axios.get("https://spotifycloneeapi.herokuapp.com/api/artist/top",{
+                axios.defaults.withCredentials = true;
+                const res = await axios.get("/artist/top",{
                     headers:{
                         token: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTNhMmY4MjAzNDg0YzYwNTM2ZjU4OGMiLCJpYXQiOjE2MzEyOTU4NjB9.JGM8D1NVRFuCZ0lRPo9uaxa2raCe6PCGIjcd11-oI_4",
                         "Access-Control-Allow-Origin": "*",

@@ -5,6 +5,7 @@ const dotenv = require('dotenv');
 const authRoute = require('./routes/auth');
 const userRoute = require('./routes/users');
 const artistRoute = require('./routes/artist');
+const trackRoute = require('./routes/track');
 
 dotenv.config();
 
@@ -21,6 +22,7 @@ app.use(express.json());
 app.use("/api/auth",authRoute);
 app.use("/api/user",userRoute);
 app.use("/api/artist",artistRoute);
+app.use("/api/track",trackRoute);
 
 app.get("/",(req,res) => {
     res.send("HELLO")
