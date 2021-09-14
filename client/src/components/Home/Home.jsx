@@ -25,6 +25,7 @@ function Home() {
             }
         };
         getArtists();
+        // eslint-disable-next-line
     }, []);
     return (
         <div className="home">
