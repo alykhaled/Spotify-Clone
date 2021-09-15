@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const Album = require('./Album');
 
 const ArtistScheme = new mongoose.Schema(
     {

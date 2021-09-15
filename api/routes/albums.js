@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const Album = require('../models/Album');
 const Artist = require('../models/Artist');
+const Track = require('../models/Track');
 const verify = require('../verifyToken');
 const mongoose = require('mongoose');
 
@@ -18,11 +19,8 @@ router.post("/",async (req,res) => {
     try 
     {
         const Album = await newAlbum.save();
-        const artist = await Artist.findById(Album.artist);
-        const artistAlbums = artist.albums;
-        artistAlbums.unshift(Album);
-        const artistNew = await Artist.findByIdAndUpdate(Album.artist, {albums: artistAlbums}, {new: true})
-        console.log(artistNew);
+        await Artist.findByIdAndUpdate(req.body.artist,{ $addToSet: { albums: Album.id }});
+
         res.status(200).send(Album);
     } 
     catch (error) 
@@ -33,13 +31,11 @@ router.post("/",async (req,res) => {
 });
 
 //GET
-router.get("/" ,async (req,res) => {
-    const query = req.query.artistId;
+router.get("/:id" ,async (req,res) => {
     try 
     {
-        let list = [];
-        list = await Album.aggregate([{ $match: {artist: mongoose.Types.ObjectId(query)} }]);
-        res.status(200).send(list);
+        const album = await Album.findById(req.params.id).populate("tracks");
+        res.status(200).send(album);
     } 
     catch (error) 
     {
@@ -48,4 +44,24 @@ router.get("/" ,async (req,res) => {
     }
     
 });
+
+//GET Tracks
+router.get("/:id/tracks" ,async (req,res) => {
+    // let list = [];
+    try 
+    {
+        // list = await Track.aggregate([{ $match: {album: mongoose.Types.ObjectId(req.params.id)} }]);
+        const list = await Album.findById(req.params.id).select("tracks").populate("tracks");
+        res.status(200).send(list.tracks);
+    } 
+    catch (error) 
+    {
+        console.log(error);
+        res.status(500).send(error);
+    }
+    
+});
+
+
+
 module.exports = router;

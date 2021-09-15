@@ -7,6 +7,7 @@ const AlbumScheme = new mongoose.Schema(
         link: {type: String, required: false},
         artist: {type: mongoose.Schema.Types.ObjectId , ref: 'Artist',required: false},
         year: {type: String, required: false},
+        tracks: [{type: mongoose.Schema.Types.ObjectId , ref: 'Track',required: false}]
     }
 )
 

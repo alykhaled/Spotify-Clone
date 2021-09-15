@@ -1,9 +1,12 @@
 const router = require('express').Router();
 const Artist = require('../models/Artist');
+const Album = require('../models/Album');
 const CryptoJS = require("crypto-js");
 const verify = require('../verifyToken');
+const mongoose = require('mongoose');
 
-//UPDATE
+
+//Create
 router.post("/" ,verify,async (req,res) => {
     const newArtist = new Artist({
         name:req.body.name,
@@ -22,10 +25,61 @@ router.post("/" ,verify,async (req,res) => {
     {
         res.status(500).send(error);
     }
-    // else {
-    //     res.status(403).send("You can only update your account!");
-    // }
 });
+
+router.get("/top" ,async (req,res) => {
+    try 
+    {
+        const topArtist = await Artist.find().populate("albums");
+        topArtist.forEach(artist => {
+            const { password, ...info } = artist._doc;
+            artist._doc = info;
+        });
+        res.status(200).send(topArtist);
+    } 
+    catch (error) 
+    {
+        res.status(500).send(error);
+    }
+});
+
+//GET artist
+router.get("/:id" ,async (req,res) => {
+    try 
+    {
+        const artist = await Artist.findById(req.params.id).populate("albums");
+        const { password, ...info } = artist._doc;
+        res.status(200).send(info);
+    } 
+    catch (error) 
+    {
+        console.log(error);
+        res.status(500).send(error);
+    }
+    
+});
+
+
+
+//GET albums
+router.get("/:id/albums" ,async (req,res) => {
+    try 
+    {
+        let list = [];
+        list = await Album.aggregate([{ $match: {artist: mongoose.Types.ObjectId(req.params.id)} }]);
+        res.status(200).send(list);
+    } 
+    catch (error) 
+    {
+        console.log(error);
+        res.status(500).send(error);
+    }
+    
+});
+
+//TODO: GET artist's top tracks
+
+//TODO: GET artist's related artists
 
 // //UPDATE
 // router.put("/:id" ,verify,async (req,res) => {
@@ -73,33 +127,5 @@ router.post("/" ,verify,async (req,res) => {
 //     }
 // });
 
-//GET
-router.get("/find/:id" ,async (req,res) => {
-    try 
-    {
-        const artist = await Artist.findById(req.params.id);
-        const { password,email, ...info } = artist._doc;
-        res.status(200).send(info);
-    } 
-    catch (error) 
-    {
-        res.status(500).send(error);
-    }
-});
 // //Get all
-router.get("/top" ,async (req,res) => {
-    try 
-    {
-        const topArtist = await Artist.find();
-        topArtist.forEach(artist => {
-            const { password, ...info } = artist._doc;
-            artist._doc = info;
-        });
-        res.status(200).send(topArtist);
-    } 
-    catch (error) 
-    {
-        res.status(500).send(error);
-    }
-});
 module.exports = router;

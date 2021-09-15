@@ -2,26 +2,47 @@ const router = require('express').Router();
 const Track = require('../models/Track');
 const CryptoJS = require("crypto-js");
 const verify = require('../verifyToken');
+const mongoose = require('mongoose');
+const Album = require('../models/Album');
 
 //Create
-router.post("/" ,verify,async (req,res) => {
+router.post("/" ,async (req,res) => {
     const newTrack = new Track({
         name:req.body.name,
         image:req.body.image,
         link:req.body.link,
         track_number:req.body.track_number,
+        album: req.body.album,
         artist: req.body.artist,
+        played_times: req.body.played_times,
+        duration: req.body.duration
     });
 
     try 
     {
         const track = await newTrack.save();
+        await Album.findByIdAndUpdate(req.body.album,{ $addToSet: { tracks: track.id }});
         res.status(200).send(track);
     } 
     catch (error) 
     {
         res.status(500).send(error);
     }
+});
+
+//GET
+router.get("/:id" ,async (req,res) => {
+    try 
+    {
+        const track = await Track.findById(req.params.id).populate("album").populate("artist");
+        res.status(200).send(track);
+    } 
+    catch (error) 
+    {
+        console.log(error);
+        res.status(500).send(error);
+    }
+    
 });
 
 // //UPDATE
