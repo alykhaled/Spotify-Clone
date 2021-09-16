@@ -8,7 +8,9 @@ const UserScheme = new Schema({
     password: String,
     image: { type: String, default: "Date.now" },  
     followers: { type: String, default: "Date.now" }, 
-    following: { type: String, default: "Date.now" }, 
+    following: { type: String, default: "Date.now" },
+    recentlyPlayed: [{type: mongoose.Schema.Types.ObjectId , ref: "Track",required: false}],
+    likedTracks: [{type: mongoose.Schema.Types.ObjectId , ref: "Track",required: false}]
 });
 
 module.exports = mongoose.model('User', UserScheme);

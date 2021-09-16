@@ -50,7 +50,7 @@ router.delete("/:id" ,verify,async (req,res) => {
 });
 
 //GET
-router.get("/find/:id" ,async (req,res) => {
+router.get("/:id" ,async (req,res) => {
     try 
     {
         const user = await User.findById(req.params.id);
