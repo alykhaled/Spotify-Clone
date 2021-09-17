@@ -15,7 +15,8 @@ router.post("/" ,async (req,res) => {
         album: req.body.album,
         artist: req.body.artist,
         played_times: req.body.played_times,
-        duration: req.body.duration
+        duration: req.body.duration,
+        context: req.body.context,
     });
 
     try 
@@ -34,7 +35,15 @@ router.post("/" ,async (req,res) => {
 router.get("/:id" ,async (req,res) => {
     try 
     {
-        const track = await Track.findById(req.params.id).populate("album").populate("artist");
+        const temptrack = await Track.findById(req.params.id);
+        const type = temptrack.context.type;
+        const track = await Track.findById(req.params.id).populate("album").populate("artist").populate({
+            path:"context",
+            populate:{
+                path:"object",
+                model:type
+            }
+        });
         res.status(200).send(track);
     } 
     catch (error) 
