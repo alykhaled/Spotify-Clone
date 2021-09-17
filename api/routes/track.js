@@ -35,15 +35,7 @@ router.post("/" ,async (req,res) => {
 router.get("/:id" ,async (req,res) => {
     try 
     {
-        const temptrack = await Track.findById(req.params.id);
-        const type = temptrack.context.type;
-        const track = await Track.findById(req.params.id).populate("album").populate("artist").populate({
-            path:"context",
-            populate:{
-                path:"object",
-                model:type
-            }
-        });
+        const track = await Track.findById(req.params.id).populate("album").populate("artist");
         res.status(200).send(track);
     } 
     catch (error) 

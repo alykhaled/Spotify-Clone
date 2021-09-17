@@ -20,7 +20,6 @@ router.post("/",async (req,res) => {
     {
         const Album = await newAlbum.save();
         await Artist.findByIdAndUpdate(req.body.artist,{ $addToSet: { albums: Album.id }});
-
         res.status(200).send(Album);
     } 
     catch (error) 

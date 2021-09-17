@@ -10,7 +10,7 @@ const TrackScheme = new mongoose.Schema(
         artist: {type: mongoose.Schema.Types.ObjectId , ref: "Artist",required: false},
         played_times: {type: String, default: "0"},
         duration: String,
-        context: {type:{type: String, required: false} , object:{type:mongoose.Schema.ObjectId}}
+        
     }
 )
 

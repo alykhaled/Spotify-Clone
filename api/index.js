@@ -7,6 +7,7 @@ const userRoute = require('./routes/users');
 const artistRoute = require('./routes/artist');
 const trackRoute = require('./routes/track');
 const albumRoute = require('./routes/albums');
+const meRoute = require('./routes/me');
 
 dotenv.config();
 
@@ -25,6 +26,7 @@ app.use("/api/user",userRoute);
 app.use("/api/artist",artistRoute);
 app.use("/api/track",trackRoute);
 app.use("/api/album",albumRoute);
+app.use("/api/me",meRoute);
 
 app.get("/",(req,res) => {
     res.send("HELLO")
