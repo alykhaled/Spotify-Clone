@@ -30,11 +30,7 @@ router.post("/" ,verify,async (req,res) => {
 router.get("/top" ,async (req,res) => {
     try 
     {
-        const topArtist = await Artist.find().populate("albums");
-        topArtist.forEach(artist => {
-            const { password, ...info } = artist._doc;
-            artist._doc = info;
-        });
+        const topArtist = await Artist.find().populate("albums","-tracks").select("-password");
         res.status(200).send(topArtist);
     } 
     catch (error) 
