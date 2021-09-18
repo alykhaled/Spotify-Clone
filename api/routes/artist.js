@@ -27,6 +27,7 @@ router.post("/" ,verify,async (req,res) => {
     }
 });
 
+//GET Top artist
 router.get("/top" ,async (req,res) => {
     try 
     {
@@ -37,6 +38,21 @@ router.get("/top" ,async (req,res) => {
     {
         res.status(500).send(error);
     }
+});
+
+//GET albums
+router.get("/:id/albums" ,async (req,res) => {
+    try 
+    {
+        const albums = await Artist.findById(req.params.id).populate("albums",["-tracks","-artist"]).select("albums");
+        res.status(200).send(albums);
+    } 
+    catch (error) 
+    {
+        console.log(error);
+        res.status(500).send(error);
+    }
+    
 });
 
 //GET artist
@@ -54,73 +70,8 @@ router.get("/:id" ,async (req,res) => {
     
 });
 
-
-
-//GET albums
-router.get("/:id/albums" ,async (req,res) => {
-    try 
-    {
-        let list = [];
-        list = await Album.aggregate([{ $match: {artist: mongoose.Types.ObjectId(req.params.id)} }]);
-        res.status(200).send(list);
-    } 
-    catch (error) 
-    {
-        console.log(error);
-        res.status(500).send(error);
-    }
-    
-});
-
 //TODO: GET artist's top tracks
 
 //TODO: GET artist's related artists
 
-// //UPDATE
-// router.put("/:id" ,verify,async (req,res) => {
-//     if (req.body.id === req.params.id ) 
-//     {
-//         if(req.body.password)
-//         {
-//             req.body.password = CryptoJS.AES.encrypt(req.body.password,process.env.SECRET_KEY).toString();
-//         }
-//         try 
-//         {
-//             const updatedUser = await User.findByIdAndUpdate(req.params.id, {$set: req.body}, {new: true});
-//             res.status(200).send(updatedUser);
-//         } 
-//         catch (error) 
-//         {
-//             res.status(500).send(error);
-//         }
-     
-//     }
-//     else {
-//         res.status(403).send("You can only update your account!");
-
-//     }
-// });
-
-// //DELETE
-// router.delete("/:id" ,verify,async (req,res) => {
-//     if (req.body.id === req.params.id ) 
-//     {
-//         try 
-//         {
-//             await User.findByIdAndDelete(req.params.id);
-//             res.status(200).send("User Deleted!");
-//         } 
-//         catch (error) 
-//         {
-//             res.status(500).send(error);
-//         }
-     
-//     }
-//     else {
-//         res.status(403).send("You can only update your account!");
-
-//     }
-// });
-
-// //Get all
 module.exports = router;
