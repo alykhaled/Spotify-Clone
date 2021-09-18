@@ -47,9 +47,8 @@ router.get("/top" ,async (req,res) => {
 router.get("/:id" ,async (req,res) => {
     try 
     {
-        const artist = await Artist.findById(req.params.id).populate("albums");
-        const { password, ...info } = artist._doc;
-        res.status(200).send(info);
+        const artist = await Artist.findById(req.params.id).populate("albums","-tracks").select("-password");
+        res.status(200).send(artist);
     } 
     catch (error) 
     {

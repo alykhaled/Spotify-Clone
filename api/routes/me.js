@@ -83,38 +83,25 @@ router.get("/recent", verify ,async (req,res) => {
             path:"recentlyPlayed",
             populate:{
                 path:"context.album",
-                model:"Album"
-            }
+                model:"Album",
+                select: ["-tracks" , "-artist"],
+             }
         }).populate({
             path:"recentlyPlayed",
             populate:{
                 path:"track",
-                model:"Track"
-            }
-        }).populate({
-            path:"recentlyPlayed",
-            populate:{
-                path:"track",
-                populate:{
-                    path:"artist",
-                    model:"Artist"
-                }
+                model:"Track",
+                select: ["-artist" , "-album"]
             }
         });
-        await user.populate({
-            path:"recentlyPlayed",
-            populate:{
-                path:"track.album",
-                model:"Album"
-            }
-        });;
-        await user.populate({
-            path:"recentlyPlayed",
-            populate:{
-                path:"track.artist.albums",
-                model:"Album"
-            }
-        });;
+        
+        // await user.populate({
+        //     path:"recentlyPlayed",
+        //     populate:{
+        //         path:"track.artist.albums",
+        //         model:"Album"
+        //     }
+        // });
         res.status(200).send(user.recentlyPlayed);
     } 
     catch (error) 
