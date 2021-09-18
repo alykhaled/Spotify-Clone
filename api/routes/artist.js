@@ -5,7 +5,6 @@ const CryptoJS = require("crypto-js");
 const verify = require('../verifyToken');
 const mongoose = require('mongoose');
 
-
 //Create
 router.post("/" ,verify,async (req,res) => {
     const newArtist = new Artist({

@@ -37,7 +37,7 @@ function Home() {
             <h1>Good afternoon</h1>
             <div className="list">
                 {cardData.map(card=>(
-                    <Card data={card}/>
+                    <Card type="artist" data={card}/>
                 ))};
             </div>
             <h1>Popular Artists</h1>

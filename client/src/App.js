@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import NavBar from './components/NavBar/NavBar';
 import Home from './components/Home/Home';
+import Artist from './components/Artist/Artist';
 
 function App() {
   return (
@@ -17,8 +18,8 @@ function App() {
               <Route path="/search">
                 seach
               </Route>
-              <Route path="/artist">
-                art
+              <Route path="/artist/:id">
+                <Artist/>
               </Route>
               <Route path="/">
                 <Home />

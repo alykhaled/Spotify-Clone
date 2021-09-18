@@ -12,40 +12,11 @@
         display: flex;
         margin: 32px 0px;
         margin-left: 32px;
-        .card{
-            width: 178px;
-            height: 288px;
-            padding: 0 16px;
-            // padding-bottom: 0px;
-            margin: 24px;
-            margin-bottom: 0px;
-            margin-left: 0px;
-            word-wrap:break-word;
-            border-radius: 5px;
-            background-color: $cardColor;
-            transition: all 0.2s ease-in-out;
-            &:hover{
-                background-color: $greyText;
-            }
-            img{
-                box-shadow: 0 0 15px #000000;
-                max-height: 178px;
-                margin-top: 16px;
-            }
-            .cardTitle{
-                color: white;
-                font-weight: bold;
-                margin-top: 15px;
-            }
-            .cardDesc{
-                color: white;
-                margin-top: 5px;
-
-            }
-        }
+        
     }
 
     h1{
         color: white;
+        margin-left: 32px;
     }
 }

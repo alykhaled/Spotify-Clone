@@ -1,8 +1,8 @@
-const router = require('express').Router();
-const Album = require('../models/Album');
-const Artist = require('../models/Artist');
-const Track = require('../models/Track');
-const verify = require('../verifyToken');
+const router   = require('express').Router();
+const Album    = require('../models/Album');
+const Artist   = require('../models/Artist');
+const Track    = require('../models/Track');
+const verify   = require('../verifyToken');
 const mongoose = require('mongoose');
 
 
