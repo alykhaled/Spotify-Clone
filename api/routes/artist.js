@@ -45,7 +45,7 @@ router.get("/:id/albums" ,async (req,res) => {
     try 
     {
         const albums = await Artist.findById(req.params.id).populate("albums",["-tracks","-artist"]).select("albums");
-        res.status(200).send(albums);
+        res.status(200).send(albums.albums);
     } 
     catch (error) 
     {
