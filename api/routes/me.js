@@ -108,6 +108,13 @@ router.get("/recent", verify ,async (req,res) => {
                 model:"Album"
             }
         });;
+        await user.populate({
+            path:"recentlyPlayed",
+            populate:{
+                path:"track.artist.albums",
+                model:"Album"
+            }
+        });;
         res.status(200).send(user.recentlyPlayed);
     } 
     catch (error) 
