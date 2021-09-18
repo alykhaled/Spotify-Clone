@@ -91,8 +91,23 @@ router.get("/recent", verify ,async (req,res) => {
                 path:"track",
                 model:"Track"
             }
+        }).populate({
+            path:"recentlyPlayed",
+            populate:{
+                path:"track",
+                populate:{
+                    path:"artist",
+                    model:"Artist"
+                }
+            }
         });
-        const list = user.recentlyPlayed;
+        await user.populate({
+            path:"recentlyPlayed",
+            populate:{
+                path:"track.album",
+                model:"Album"
+            }
+        });;
         res.status(200).send(user.recentlyPlayed);
     } 
     catch (error) 
