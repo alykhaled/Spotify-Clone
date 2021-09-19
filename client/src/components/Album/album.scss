@@ -1,0 +1,75 @@
+@use '../../utils.scss' as *;
+
+.album{
+    width: 100%;
+
+    .header{
+        height: 389px;
+        background-color: #DD155E;
+        position: relative;
+        
+        .wrapper{
+            position: absolute;
+            bottom: 0;
+            display: flex;
+            flex-direction: row;
+            img{
+                height: 232px;
+                width: 232px;
+                bottom: 0;
+            }
+            .albumData{
+                p{
+                    color: #fff;
+                    margin-top: 0;
+                }
+                .albumName{
+                    position: absolute;
+                    bottom: 0;
+                    color: #fff;
+                    font-size: 45px;                letter-spacing: -4px;
+                    letter-spacing: -5px;
+                }
+
+            }
+        }
+        
+        
+    }
+
+    .controls{
+        margin-top: 25px;
+        margin-left: 32px;
+        .playBtn{
+            width: 65px;
+            height: 65px;
+            border-radius: 100px;
+            background: $greenColor;
+            color: #fff;
+            transition: all 0.05s ease-in-out;
+            border-style: hidden;
+            &:hover{
+                transform: scale(1.08) perspective(1px)
+            }
+        }
+        height: 65px;
+        display: flex;
+        align-items: center;
+        .followBtn{
+            background: transparent;
+            padding: 6px 18px;
+            color: #fff;
+            font-size: 15px;
+            border: 1.9px solid #fff;
+            font-weight: bold;
+            border-radius: 5px;
+            outline: none;
+            margin-left: 30px;
+            margin-right: 30px;
+            &:hover{
+                border: 1.9px solid $greyTextLight;
+            }
+        }
+        
+    }
+}

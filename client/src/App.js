@@ -7,19 +7,23 @@ import {
 import NavBar from './components/NavBar/NavBar';
 import Home from './components/Home/Home';
 import Artist from './components/Artist/Artist';
+import Album from './components/Album/Album';
 
 function App() {
   return (
       <div className="outerWrap">
         <div className="App">
           <Router>
-            <NavBar />
+            <NavBar/>
             <Switch>
               <Route path="/search">
                 seach
               </Route>
               <Route path="/artist/:id">
-                <Artist/>
+                <Artist />
+              </Route>
+              <Route path="/album/:id">
+                <Album />
               </Route>
               <Route path="/">
                 <Home />

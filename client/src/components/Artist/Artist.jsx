@@ -121,7 +121,7 @@ function Artist() {
             <h1>Popular releases</h1>
             <div className="list">
                 {artistAlbums.map(card=>(
-                    <Card  data={card}/>
+                    <Card data={card}/>
                 ))};
             </div>
 
