@@ -61,7 +61,61 @@ function Artist() {
             </div>
 
             {/* Popular Tracks */}
-
+            <h1>Popular Tracks</h1>
+            <div className="popularTracks">
+                <div className="trackItem">
+                    <div className="trackNum">
+                        <p>1</p>
+                    </div>
+                    <div className="trackImage">
+                        <img src="https://i.scdn.co/image/ab67616d00001e027e521931327ae0775498fe72" alt="ss" />
+                    </div>
+                    <div className="trackName">
+                        <p>Aoede</p>
+                    </div>
+                    <div className="trackListens">
+                        <p>249,541</p>                        
+                    </div>
+                    <div className="trackDuration">
+                        <p>3:45</p>
+                    </div>
+                </div>
+                <div className="trackItem">
+                    <div className="trackNum">
+                        <p>1</p>
+                    </div>
+                    <div className="trackImage">
+                        <img src="https://i.scdn.co/image/ab67616d00001e027e521931327ae0775498fe72" alt="ss" />
+                    </div>
+                    <div className="trackName">
+                        <p>Aoede</p>
+                    </div>
+                    <div className="trackListens">
+                        <p>249,541</p>                        
+                    </div>
+                    <div className="trackDuration">
+                        <p>3:45</p>
+                    </div>
+                </div>
+                <div className="trackItem">
+                    <div className="trackNum">
+                        <p>1</p>
+                    </div>
+                    <div className="trackImage">
+                        <img src="https://i.scdn.co/image/ab67616d00001e027e521931327ae0775498fe72" alt="ss" />
+                    </div>
+                    <div className="trackName">
+                        <p>Aoede</p>
+                    </div>
+                    <div className="trackListens">
+                        <p>249,541</p>                        
+                    </div>
+                    <div className="trackDuration">
+                        <p>3:45</p>
+                    </div>
+                </div>
+                
+            </div>
 
             {/* Popular Albums */}
             <h1>Popular releases</h1>
@@ -87,8 +141,15 @@ function Artist() {
                 ))};
             </div>
 
+            {/* Fans also like */}
+            <h1>Fans also like</h1>
+            <div className="list">
+                {artistAlbums.map(card=>(
+                    <Card  data={card}/>
+                ))};
+            </div>
             {/* About section */}
-            
+
         </div>
     )
 }
