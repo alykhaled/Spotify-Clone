@@ -10,7 +10,7 @@ function Album() {
     const {id} = useParams();
     const [albumData,setRes] = useState([]);
     const [artistAlbums,setAlbums] = useState([]);
-    const [albumBack,setAlbumBack] = useState("");
+    const [albumTracks,setAlbumTracks] = useState([]);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(() => {
@@ -18,10 +18,7 @@ function Album() {
         {
             try {
                 const res = await axios.get("/album/"+id);
-                if(res !== undefined)
                 setRes(res.data);
-                // console.log(res.data);
-                
             } catch (error) {
                 console.log(error);
             }
@@ -40,11 +37,25 @@ function Album() {
             }
         };
         getArtistAlbums();
-    }, [albumData])
+    }, [albumData]);
+
+    useEffect(() => {
+        const getAlbumTracks = async () => 
+        {
+            try {
+                const res = await axios.get("/album/"+id+"/tracks");
+                setAlbumTracks(res.data);
+                console.log(res.data);
+            } catch (error) {
+                console.log(error);
+            }
+        };
+        getAlbumTracks();
+    }, [id]);
 
     return (
         <div className="album">
-             <Color src={albumData.image} crossOrigin="anonymous" format="hex">
+            <Color src={albumData.image} crossOrigin="anonymous" format="hex">
                 {({ data, loading }) => {
                 return (
                     <div className="header" style={{backgroundColor:data}}>
@@ -71,6 +82,24 @@ function Album() {
                 <button className="optionsBtn" >
                     ...
                 </button>
+            </div>
+            <div className="tracksList">
+                <div className="head">
+                    <span>#</span>
+                    <span className="titleTag">TITLE</span>
+                    <span className="timeTag"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M7.999 3H6.999V7V8H7.999H9.999V7H7.999V3ZM7.5 0C3.358 0 0 3.358 0 7.5C0 11.642 3.358 15 7.5 15C11.642 15 15 11.642 15 7.5C15 3.358 11.642 0 7.5 0ZM7.5 14C3.916 14 1 11.084 1 7.5C1 3.916 3.916 1 7.5 1C11.084 1 14 3.916 14 7.5C14 11.084 11.084 14 7.5 14Z" fill="currentColor"></path></svg></span>
+                </div>
+                <hr/>
+                {albumTracks.map(track=>(
+                    <div className="trackItem">
+                        <span>{track.track_number}</span>
+                        <div className="AlbumTrackInfo">
+                            <span className="albumTrackName">{track.name}</span>
+                            <span className="albumTrackArtist">Mashrou' Leila</span>
+                        </div>
+                        <span className="albumTrackDuration">{track.duartion}</span>
+                    </div>
+                ))};
             </div>
             <div className="list">
                 {artistAlbums.map(card=>(

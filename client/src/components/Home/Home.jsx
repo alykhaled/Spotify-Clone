@@ -47,12 +47,12 @@ function Home() {
             <h1>Popular Albums</h1>
             <div className="list">
                 {cardData.map(card=>(
-                    <Card data={card}/>
+                    <Card type="artist" data={card}/>
                 ))};
             </div>
             <div className="list">
                 {cardData.map(card=>(
-                    <Card data={card}/>
+                    <Card type="artist" data={card}/>
                 ))};
             </div>
         </div>

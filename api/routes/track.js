@@ -16,7 +16,6 @@ router.post("/" ,async (req,res) => {
         artist: req.body.artist,
         played_times: req.body.played_times,
         duration: req.body.duration,
-        context: req.body.context,
     });
 
     try 

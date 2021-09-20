@@ -16,7 +16,7 @@
     }
     img{
         box-shadow: 0 0 15px #000000;
-        max-height: 178px;
+        height: 178px;
         margin-top: 16px;
     }
     .cardTitle{
@@ -29,7 +29,7 @@
         margin-top: 5px;
 
     }
-    &.artist{
+    .artist{
         border-radius: 100px;
     }
     a{

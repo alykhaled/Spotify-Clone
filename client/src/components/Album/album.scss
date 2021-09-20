@@ -44,12 +44,59 @@
         
     }
 
+    .tracksList{
+        margin-left: 35px;
+        margin-top: 40px;
+        span{
+            color: $greyTextLight;
+        }
+        hr{
+            background-color: $greyTextLight;
+        }
+        .head{
+            display: flex;
+            align-items: center;
+            margin-bottom: 13px;
+            .titleTag{
+                margin-left: 18px;
+            }
+            .timeTag{
+                margin-right: 68px;
+                margin-left: auto;
+            }
+        }
+        .trackItem{
+            height: 56px;
+            display: flex;
+            border-radius: 5px;
+            margin-top: 13px;
+            align-items: center;
+            margin-bottom: 13px;
+            transition: all 0.2s ease-in-out;
+            &:hover{
+                background-color: $greyText;
+            }
+            .AlbumTrackInfo{
+                margin-left: 18px;
+                display: flex;
+                flex-direction: column;
+                .albumTrackName{
+                    color: white;
+                }
+            }
+            .albumTrackDuration{
+                margin-right: 68px;
+                margin-left: auto;
+            }
+        }
+    }
+
     .controls{
-        margin-top: 25px;
+        margin-top: 22px;
         margin-left: 32px;
         .playBtn{
-            width: 65px;
-            height: 65px;
+            width: 55px;
+            height: 55px;
             border-radius: 100px;
             background: $greenColor;
             color: #fff;
@@ -57,6 +104,10 @@
             border-style: hidden;
             &:hover{
                 transform: scale(1.08) perspective(1px)
+            }
+            svg{
+                width: 25px;
+                height: 25px;
             }
         }
         height: 65px;
