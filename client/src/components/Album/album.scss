@@ -1,19 +1,26 @@
 @use '../../utils.scss' as *;
-
+.list{
+    display: flex;
+    margin: 26px 0px;
+    margin-left: 32px;
+}
 .album{
     width: 100%;
 
     .header{
-        height: 389px;
-        background-color: #DD155E;
+        height: 398px;
+        width: 100%;
         position: relative;
-        
         .wrapper{
             position: absolute;
             bottom: 0;
+            width: 100vh;
             display: flex;
+            margin-left: 32px;
+            margin-bottom: 24px;
             flex-direction: row;
             img{
+                box-shadow: 0 0 40px 0px #000000b4;
                 height: 232px;
                 width: 232px;
                 bottom: 0;

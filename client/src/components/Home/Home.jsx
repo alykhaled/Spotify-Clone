@@ -7,7 +7,6 @@ const dotenv = require('dotenv');
 
 function Home() {
     dotenv.config();
-    const API = process.env.REACT_APP_API;
     const [cardData,setRes] = useState([]);
     useEffect(() => {
 
@@ -30,8 +29,7 @@ function Home() {
             }
         };
         getArtists();
-        // eslint-disable-next-line
-    }, []);
+    }, [cardData]);
     return (
         <div className="home">
             <h1>Good afternoon</h1>
