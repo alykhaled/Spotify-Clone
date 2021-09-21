@@ -33,7 +33,7 @@ router.post("/",async (req,res) => {
 router.get("/:id" ,async (req,res) => {
     try 
     {
-        const album = await Album.findById(req.params.id).populate("tracks");
+        const album = await Album.findById(req.params.id).populate("tracks",["-album","-artist"]);
         res.status(200).send(album);
     } 
     catch (error) 
