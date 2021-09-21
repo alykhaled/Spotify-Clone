@@ -1,11 +1,11 @@
-const router = require('express').Router();
-const {Track} = require('../models/Track');
-const Artist = require('../models/Artist');
-const User = require('../models/User');
-const CryptoJS = require("crypto-js");
-const verify = require('../verifyToken');
-const mongoose = require('mongoose');
-const Album = require('../models/Album');
+const router    = require('express').Router();
+const Track     = require('../models/Track');
+const Artist    = require('../models/Artist');
+const User      = require('../models/User');
+const CryptoJS  = require("crypto-js");
+const verify    = require('../verifyToken');
+const mongoose  = require('mongoose');
+const Album     = require('../models/Album');
 
 //Play track
 router.put("/play/:id" ,verify,async (req,res) => {
@@ -50,7 +50,6 @@ router.put("/play/:id" ,verify,async (req,res) => {
 router.get("/", verify ,async (req,res) => {
     try 
     {
-        console.log(req.user._id);
         const user = await User.findById(req.user._id).populate({
             path:"recentlyPlayed",
             populate:{
@@ -78,7 +77,6 @@ router.get("/", verify ,async (req,res) => {
 router.get("/recent", verify ,async (req,res) => {
     try 
     {
-        console.log(req.user._id);
         const user = await User.findById(req.user._id).populate({
             path:"recentlyPlayed",
             populate:{

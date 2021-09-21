@@ -17,7 +17,6 @@ function Artist() {
             try {
                 const res = await axios.get("/artist/"+id);
                 setRes(res.data);
-                console.log(res.data);
             } catch (error) {
                 console.log(error);
             }
@@ -28,7 +27,6 @@ function Artist() {
             try {
                 const albums = await axios.get("/artist/"+id+"/albums");
                 setAlbums(albums.data);
-                console.log(albums.data);
             } catch (error) {
                 console.log(error);
             }

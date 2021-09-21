@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom'
 import axios from "axios";
 import './album.scss';
 import Card from '../Card/Card';
-import Color, { Palette } from "color-thief-react";
+import Color from "color-thief-react";
 
 function Album() {
     const {id} = useParams();
@@ -26,6 +26,20 @@ function Album() {
         getAlbum();
     },[id]);
 
+    async function listenToTrack(trackInfo) 
+    {
+        try {
+            const bodyReq = {type:"Album",id:id};
+            const res = await axios.put("/me/play/"+trackInfo._id,bodyReq,{
+                headers:{
+                    token: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTQ0N2QzZTYzMGYwOTc1NjJmYjBmZDIiLCJpYXQiOjE2MzE4Nzg1MjJ9.-MHDrIb9Y2GcwilNPA0L8HlTG4fRF4SmUSywaK5NAzM",
+                }
+            });
+            console.log(res.data);
+        } catch (error) {
+            console.log(error);
+        }
+    };        
     useEffect(() => {
         const getArtistAlbums = async () => 
         {
@@ -45,7 +59,6 @@ function Album() {
             try {
                 const res = await axios.get("/album/"+id+"/tracks");
                 setAlbumTracks(res.data);
-                console.log(res.data);
             } catch (error) {
                 console.log(error);
             }
@@ -58,20 +71,24 @@ function Album() {
             <Color src={albumData.image} crossOrigin="anonymous" format="hex">
                 {({ data, loading }) => {
                 return (
-                    <div className="header" style={{backgroundColor:data}}>
-                        <div className="wrapper">
-                            <img id="myimg" src={albumData.image} alt="fds" />
-                            <div className="albumData">
-                                <p>Album</p>
-                                <div className="albumName">
-                                    <h1>{albumData.name}</h1>
+                    <div className="s">
+                        <div className="header" style={{backgroundColor:data}}>
+                            <div className="wrapper">
+                                <img id="myimg" src={albumData.image} alt="fds" />
+                                <div className="albumData">
+                                    <p>Album</p>
+                                    <div className="albumName">
+                                        <h1>{albumData.name}</h1>
+                                    </div>
                                 </div>
-
                             </div>
+                        </div>
+                        <div className="gradientLayer" style={{backgroundImage:"linear-gradient("+data+","+ "#121212"+")"}}>
                         </div>
                     </div>
                 );}}
             </Color>
+
             <div className="controls">
                 <button className="playBtn">
                     <svg height="32" role="img" width="32" viewBox="0 0 24 24" aria-hidden="true"><polygon points="21.57 12 5.98 3 5.98 21 21.57 12" fill="currentColor"></polygon></svg>
@@ -91,7 +108,7 @@ function Album() {
                 </div>
                 <hr/>
                 {albumTracks.map(track=>(
-                    <div className="trackItem">
+                    <div onClick={() => listenToTrack(track)} className="trackItem">
                         <span>{track.track_number}</span>
                         <div className="AlbumTrackInfo">
                             <span className="albumTrackName">{track.name}</span>

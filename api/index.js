@@ -1,13 +1,13 @@
-const express = require('express');
-const app = express();
-const mongoose = require('mongoose');
-const dotenv = require('dotenv');
-const authRoute = require('./routes/auth');
-const userRoute = require('./routes/users');
-const artistRoute = require('./routes/artist');
-const trackRoute = require('./routes/track');
-const albumRoute = require('./routes/albums');
-const meRoute = require('./routes/me');
+const express       = require('express');
+const app           = express();
+const mongoose      = require('mongoose');
+const dotenv        = require('dotenv');
+const authRoute     = require('./routes/auth');
+const userRoute     = require('./routes/users');
+const artistRoute   = require('./routes/artist');
+const trackRoute    = require('./routes/track');
+const albumRoute    = require('./routes/albums');
+const meRoute       = require('./routes/me');
 
 dotenv.config();
 
@@ -18,7 +18,6 @@ mongoose
     })
     .then(() => console.log("DB connected"))
     .catch(err => console.log(err));
-
 
 app.use(express.json());
 app.use("/api/auth",authRoute);
@@ -33,5 +32,5 @@ app.get("/",(req,res) => {
 })
 
 app.listen(process.env.PORT || 8080, () => {
-    console.log('Server is running on port 8000');
+    console.log('Server is running on port 8080');
 });

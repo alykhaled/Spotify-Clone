@@ -8,34 +8,45 @@ const dotenv = require('dotenv');
 function Home() {
     dotenv.config();
     const [cardData,setRes] = useState([]);
+    const [recenltyPlayed,setRecenltyPlayed] = useState([]);
     useEffect(() => {
 
         const getArtists = async () => 
         {
             try {
-                axios.defaults.withCredentials = true;
-                const res = await axios.get("/artist/top",{
+                const res = await axios.get("/artist/top");
+                setRes(res.data);
+            } catch (error) {
+                console.log(error);
+            }
+        };        
+        getArtists();
+    }, []);
+
+    useEffect(() => {
+        const getRecentlyPlayed = async () => 
+        {
+            try {
+                const res = await axios.get("/me/recent",{
                     headers:{
-                        token: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTNhMmY4MjAzNDg0YzYwNTM2ZjU4OGMiLCJpYXQiOjE2MzEyOTU4NjB9.JGM8D1NVRFuCZ0lRPo9uaxa2raCe6PCGIjcd11-oI_4",
-                        "Access-Control-Allow-Origin": "*",
-                        "Access-Control-Allow-Methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS",
-                        "Access-Control-Allow-Headers" : "Origin, Content-Type, X-Auth-Token",
+                        token: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTQ0N2QzZTYzMGYwOTc1NjJmYjBmZDIiLCJpYXQiOjE2MzE4Nzg1MjJ9.-MHDrIb9Y2GcwilNPA0L8HlTG4fRF4SmUSywaK5NAzM",
                     }
                 });
-                setRes(res.data);
-                console.log(cardData);
+                setRecenltyPlayed(res.data);
+                console.log(res.data);
             } catch (error) {
                 console.log(error);
             }
         };
-        getArtists();
-    }, [cardData]);
+        getRecentlyPlayed();
+    }, []);
+
     return (
         <div className="home">
             <h1>Good afternoon</h1>
             <div className="list">
-                {cardData.map(card=>(
-                    <Card type="artist" data={card}/>
+                {recenltyPlayed.map(card=>(
+                    <Card data={card.context.album}/>
                 ))};
             </div>
             <h1>Popular Artists</h1>
