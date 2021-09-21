@@ -50,7 +50,21 @@ router.get("/:id/tracks" ,async (req,res) => {
     try 
     {
         // list = await Track.aggregate([{ $match: {album: mongoose.Types.ObjectId(req.params.id)} }]);
-        const list = await Album.findById(req.params.id).select("tracks").populate("tracks");
+        const list = await Album.findById(req.params.id).select("tracks").populate("tracks").populate({
+            path:"tracks",
+            populate:{
+                path:"album",
+                model:"Album",
+                select: ["-tracks" , "-artist"],
+             }
+        }).populate({
+            path:"tracks",
+            populate:{
+                path:"artist",
+                model:"Artist",
+                select: ["-albums"],
+             }
+        });
         res.status(200).send(list.tracks);
     } 
     catch (error) 
