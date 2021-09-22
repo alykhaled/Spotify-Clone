@@ -8,33 +8,42 @@ import NavBar from './components/NavBar/NavBar';
 import Home from './components/Home/Home';
 import Artist from './components/Artist/Artist';
 import Album from './components/Album/Album';
+import SignUp from './components/SignUp/SignUp';
 
 function App() {
   return (
-      <div className="outerWrap">
-        <div className="App">
-          <Router>
-            <NavBar/>
-            <Switch>
-              <Route path="/search">
-                seach
-              </Route>
-              <Route path="/artist/:id">
-                <Artist />
-              </Route>
-              <Route path="/album/:id">
-                <Album />
-              </Route>
-              <Route path="/">
-                <Home />
-              </Route>
-            </Switch>    
-          </Router>
+      <Router>
+        <Switch>
+          <Route path="/signup">
+            <SignUp/>
+          </Route>
+          <Route path="/signin">
+            <SignUp/>
+          </Route>
+        <div className="outerWrap">
+          <div className="App">
+              <NavBar/>
+              <Switch>
+                <Route path="/search">
+                  seach
+                </Route>
+                <Route path="/artist/:id">
+                  <Artist />
+                </Route>
+                <Route path="/album/:id">
+                  <Album />
+                </Route>
+                <Route path="/">
+                  <Home />
+                </Route>
+              </Switch>    
+          </div>
+          <div className="musicControls">
+            Music Controls
+          </div>
         </div>
-        <div className="musicControls">
-          Music Controls
-        </div>
-      </div>
+        </Switch>
+      </Router>
       
     
   );

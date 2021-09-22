@@ -64,6 +64,7 @@ export default function NavBar() {
                     </li>
                 </Link>
             </ul>
+            <hr/>
             <div className="cookies">
                 <span>Cookies</span>
                 <span>Privacy</span>

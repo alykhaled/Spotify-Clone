@@ -20,7 +20,11 @@ const UserScheme = new Schema(
             },
             track:{type: mongoose.Schema.Types.ObjectId , ref: "Track",required: false}
         }],
-        likedTracks: [{type: mongoose.Schema.Types.ObjectId , ref: "Track",required: false}]
+        likedTracks: [{type: mongoose.Schema.Types.ObjectId , ref: "Track",required: false}],
+        playlists: [{type: mongoose.Schema.Types.ObjectId , ref: "Playlist",required: false}],
+        followedPlaylists: [{type: mongoose.Schema.Types.ObjectId , ref: "Playlist",required: false}],
+        followedArtists: [{type: mongoose.Schema.Types.ObjectId , ref: "Artist",required: false}],
+
     }
 );
 
