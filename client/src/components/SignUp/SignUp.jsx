@@ -17,8 +17,9 @@ function SignUp() {
                 <hr/>
                 <form action="POST">
                     <input type="text" placeholder="Enter your email." name="f" id="" />
-                    <input type="text" placeholder="Enter your email." name="f" id="" />
-                    <input type="text" placeholder="Enter your email." name="f" id="" />
+                    <input type="text" placeholder="Enter your email again." name="f" id="" />
+                    <input type="text" placeholder="Create a password." name="f" id="" />
+                    <input type="text" placeholder="Enter a profile name." name="f" id="" />
                 </form>
             </div>
         </div>
