@@ -1,7 +1,35 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './signup.scss';
+import axios from "axios";
+import { useHistory } from 'react-router-dom';
 
 function SignUp() {
+    const history = useHistory();
+    const [registerData,setRegisterData] = useState({
+        name: "",
+        username: "",
+        email: "",
+        password: "" 
+    });
+    async function register(e) 
+    {
+        e.preventDefault();
+     
+        try {
+            const res = await axios.post("/auth/register",registerData);
+            console.log(res.data);
+        } catch (error) {
+            console.log(error);
+        }
+        history.push("/");
+    };
+    function handel(e)
+    {
+        const newdata = {...registerData};
+        newdata[e.target.id] = e.target.value;
+        setRegisterData(newdata);
+        console.log(newdata);
+    }
     return (
         <div className="signup">
             <div className="mainForm">
@@ -14,26 +42,25 @@ function SignUp() {
                     <button>Sign up with Facebook</button>
                 </div>
                 <hr/>
-                <form action="POST" className="formData">
+                <form onSubmit={(e) => register(e)} className="formData">
                     <div className="inputField">
                         <label htmlFor="html">What's your email?</label>
-                        <input type="text" placeholder="Enter your email." name="f" id="email" />
+                        <input onChange={(e) => handel(e)} type="text" placeholder="Enter your email." name="f" id="email" />
                     </div>
                     <div className="inputField">
                         <label htmlFor="html">Confirm your email</label>
-                        <input type="text" placeholder="Enter your email again." name="f" id="email" />
+                        <input onChange={(e) => handel(e)} type="text" placeholder="Enter your email again." id="username"/>
                     </div>
                     <div className="inputField">
                         <label htmlFor="html">Create a password</label>
-                        <input type="text" placeholder="Create a password." name="f" id="email" />
+                        <input onChange={(e) => handel(e)} type="text" placeholder="Create a password." name="f" id="password" />
                     </div>
                     <div className="inputField">
                         <label htmlFor="html">What should we call you?</label>
-                        <input type="text" placeholder="Enter a profile name." name="f" id="email" />
+                        <input onChange={(e) => handel(e)} type="text" placeholder="Enter a profile name." name="f" id="name" />
                     </div>
                     <div className="inputField">
                         <label htmlFor="html">What's your date of birth?</label>
-                        <input type="text" placeholder="Enter a profile name." name="f" id="email" />
                         <select id="month" name="month" required="" aria-invalid="false" class="Select-sc-1g6lqw8-0 hRZeKI Month__StyledFormSelect-sc-1ghcdys-1 fLxgJu"><option selected="" disabled="" value="">Month</option><option value="01">January</option><option value="02">February</option><option value="03">March</option><option value="04">April</option><option value="05">May</option><option value="06">June</option><option value="07">July</option><option value="08">August</option><option value="09">September</option><option value="10">October</option><option value="11">November</option><option value="12">December</option></select>
                     </div>
                     <div className="genderField">

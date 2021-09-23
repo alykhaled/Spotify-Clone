@@ -5,10 +5,11 @@ import {
   Route,
 } from "react-router-dom";
 import NavBar from './components/NavBar/NavBar';
-import Home from './components/Home/Home';
+import Home   from './components/Home/Home';
 import Artist from './components/Artist/Artist';
-import Album from './components/Album/Album';
+import Album  from './components/Album/Album';
 import SignUp from './components/SignUp/SignUp';
+import SignIn from './components/SignIn/SignIn';
 
 function App() {
   return (
@@ -17,8 +18,8 @@ function App() {
           <Route path="/signup">
             <SignUp/>
           </Route>
-          <Route path="/signin">
-            <SignUp/>
+          <Route path="/login">
+            <SignIn/>
           </Route>
         <div className="outerWrap">
           <div className="App">

@@ -9,8 +9,8 @@ const UserScheme = new Schema(
         email: String,  
         password: String,
         image: { type: String, default: "Date.now" },  
-        followers: { type: String, default: "Date.now" }, 
-        following: { type: String, default: "Date.now" },
+        followers: [{type: mongoose.Schema.Types.ObjectId , ref: "User",required: false}], 
+        following: [{type: mongoose.Schema.Types.ObjectId , ref: "User",required: false}],
         recentlyPlayed: [{
             context: {
                 type:{type: String, required: false},
