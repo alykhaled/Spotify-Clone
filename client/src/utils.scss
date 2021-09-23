@@ -5,3 +5,15 @@ $greyText: #282828;
 $greyTextLight: #B3B3B3;
 $cardColor: #1A1A1A;
 $greenColor: #1DB954;
+
+.btn button{
+    border: transparent;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 15px;
+    transition: all 0.05s ease-in-out;
+    border-style: hidden;
+    &:hover{
+        transform: scale(1.08) perspective(1px)
+    }
+}
