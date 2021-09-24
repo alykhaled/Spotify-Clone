@@ -14,7 +14,6 @@ function SignUp() {
     async function register(e) 
     {
         e.preventDefault();
-     
         try {
             const res = await axios.post("/auth/register",registerData);
             console.log(res.data);
