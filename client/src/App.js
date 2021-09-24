@@ -56,7 +56,26 @@ function App() {
             </div>
 
             <div className="controls">
-              Music Control
+              <div className="controlBtn">
+                <button className="playBtn">
+                    <svg height="32" role="img" width="32" viewBox="0 0 24 24" aria-hidden="true"><polygon points="21.57 12 5.98 3 5.98 21 21.57 12" fill="currentColor"></polygon></svg>
+                </button>
+                <button className="playBtn">
+                    <svg height="32" role="img" width="32" viewBox="0 0 24 24" aria-hidden="true"><polygon points="21.57 12 5.98 3 5.98 21 21.57 12" fill="currentColor"></polygon></svg>
+                </button>
+                <button className="playBtn">
+                    <svg height="32" role="img" width="32" viewBox="0 0 24 24" aria-hidden="true"><polygon points="21.57 12 5.98 3 5.98 21 21.57 12" fill="currentColor"></polygon></svg>
+                </button>
+                <button className="playBtn">
+                    <svg height="32" role="img" width="32" viewBox="0 0 24 24" aria-hidden="true"><polygon points="21.57 12 5.98 3 5.98 21 21.57 12" fill="currentColor"></polygon></svg>
+                </button>
+                <button className="playBtn">
+                    <svg height="32" role="img" width="32" viewBox="0 0 24 24" aria-hidden="true"><polygon points="21.57 12 5.98 3 5.98 21 21.57 12" fill="currentColor"></polygon></svg>
+                </button>
+              </div>
+              <div className="controlBar">
+                <input id="dur" type="range" name="rng" min="0" step="0.25" value="3"   style={{width:245}}/>
+              </div>
             </div>
             
             <div className="trackInfos">
