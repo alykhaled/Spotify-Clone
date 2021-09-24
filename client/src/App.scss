@@ -21,8 +21,19 @@
     height: 90px;    
     display: flex;
     position: fixed;
+    flex-direction: row;
     width: 100%;
     top: calc(100vh - 90px);
     align-items: center;
-    justify-items: center;
+    justify-content: space-between;
+    color: white;
+    font-family: sans-serif;    
+    .trackInfos{
+        display: flex;
+        .trackImage{
+            img{
+                width: 56px;
+            }
+        }
+    }
 }
