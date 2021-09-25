@@ -64,7 +64,7 @@
         .controlBar{
             margin-bottom: 5px;
             .slider{
-                -webkit-appearance: none;
+                -webkit-background-origin: inherit;
                 width: 600px;
                 height: 5px;
                 border-radius: 5px;  

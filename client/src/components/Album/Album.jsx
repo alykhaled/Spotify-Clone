@@ -6,7 +6,7 @@ import './album.scss';
 import Card from '../Card/Card';
 import Color from "color-thief-react";
 
-function Album() {
+function Album(props) {
     const {id} = useParams();
     const [albumData,setRes] = useState([]);
     const [artistAlbums,setAlbums] = useState([]);
@@ -35,6 +35,7 @@ function Album() {
                     token: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTQ0N2QzZTYzMGYwOTc1NjJmYjBmZDIiLCJpYXQiOjE2MzE4Nzg1MjJ9.-MHDrIb9Y2GcwilNPA0L8HlTG4fRF4SmUSywaK5NAzM",
                 }
             });
+            props.lisentedTrack(trackInfo);
             console.log(res.data);
         } catch (error) {
             console.log(error);

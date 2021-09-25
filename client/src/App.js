@@ -10,8 +10,52 @@ import Artist from './components/Artist/Artist';
 import Album  from './components/Album/Album';
 import SignUp from './components/SignUp/SignUp';
 import SignIn from './components/SignIn/SignIn';
+import { useState,useEffect } from 'react';
+import {Howl} from 'howler';
+
+const useAudio = url => {
+  const [audio] = useState(new Audio(url));
+  const [playing, setPlaying] = useState(false);
+
+  const toggle = () => setPlaying(!playing);
+
+  useEffect(() => {
+      playing ? audio.play() : audio.pause();
+    },
+    [playing]
+  );
+
+  useEffect(() => {
+    audio.addEventListener('ended', () => setPlaying(false));
+    return () => {
+      audio.removeEventListener('ended', () => setPlaying(false));
+    };
+  }, []);
+  console.log(url);
+
+  return [playing, toggle];
+};
 
 function App() {
+  const [playing, toggle] = useAudio("https://p.scdn.co/mp3-preview/ad32aa37f16eb7555ac8d23940a7f22dca140b24?cid=774b29d4f13844c495f206cafdad9c86");
+  const [listenedTrack, setListenedTrack] = useState({});
+
+
+
+
+  useEffect(() => {
+    console.log(listenedTrack);
+    const link = listenedTrack.link;
+    if (link !== undefined)
+    {
+      const sound = new Howl({
+        link,
+        html5: true
+      });
+      sound.play();
+    }
+    
+  }, [listenedTrack])
   return (
       <Router>
         <Switch>
@@ -23,6 +67,9 @@ function App() {
           </Route>
         <div className="outerWrap">
           <div className="App">
+          <audio className="audio-element">
+            <source src={listenedTrack.link}></source>
+          </audio>
             <NavBar/>
             <Switch>
               <Route path="/search">
@@ -32,7 +79,7 @@ function App() {
                 <Artist />
               </Route>
               <Route path="/album/:id">
-                <Album />
+                <Album lisentedTrack={setListenedTrack}/>
               </Route>
               <Route path="/">
                 <Home />
@@ -42,14 +89,14 @@ function App() {
           <div className="musicControls">
             <div className="trackInfos">
               <div className="trackImage">
-                  <img src="https://i.scdn.co/image/ab67616d00001e027e521931327ae0775498fe72" alt="ss" />
+                  <img src={listenedTrack.image === undefined ? "https://i.scdn.co/image/ab67616d00001e0291a0ef8db4b7869b13314580" : listenedTrack.image} alt="ss" />
               </div>
               <div className="infos">
                 <div className="trackName">
-                    <p>Aoede</p>
+                    <p>{listenedTrack.name}</p>
                 </div>
                 <div className="trackArtist">
-                    <p>Mashrou' Leila</p>                        
+                    <p>{listenedTrack.artist === undefined ? "" : listenedTrack.artist.name}</p>                        
                 </div>
               </div>
               <button type="button" class="smallBtn" >
