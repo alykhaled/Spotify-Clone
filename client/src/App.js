@@ -57,27 +57,14 @@ function App() {
 
             <div className="controls">
               <div className="controlBtn">
-                <button className="playBtn">
-                    <svg height="32" role="img" width="32" viewBox="0 0 24 24" aria-hidden="true"><polygon points="21.57 12 5.98 3 5.98 21 21.57 12" fill="currentColor"></polygon></svg>
-                </button>
-                <button className="playBtn">
-                    <svg height="32" role="img" width="32" viewBox="0 0 24 24" aria-hidden="true"><polygon points="21.57 12 5.98 3 5.98 21 21.57 12" fill="currentColor"></polygon></svg>
-                </button>
-                <button className="playBtn">
-                    <svg height="32" role="img" width="32" viewBox="0 0 24 24" aria-hidden="true"><polygon points="21.57 12 5.98 3 5.98 21 21.57 12" fill="currentColor"></polygon></svg>
-                </button>
-                <button className="playBtn">
-                    <svg height="32" role="img" width="32" viewBox="0 0 24 24" aria-hidden="true"><polygon points="21.57 12 5.98 3 5.98 21 21.57 12" fill="currentColor"></polygon></svg>
-                </button>
-                <button className="playBtn">
-                    <svg height="32" role="img" width="32" viewBox="0 0 24 24" aria-hidden="true"><polygon points="21.57 12 5.98 3 5.98 21 21.57 12" fill="currentColor"></polygon></svg>
+                <button className="roundBtn playBtn">
+                <svg role="img" height="16" width="16" viewBox="0 0 16 16" class="Svg-sc-1bi12j5-0 gSLhUO"><path fill="none" d="M0 0h16v16H0z"></path><path d="M3 2h3v12H3zm7 0h3v12h-3z"></path></svg>
                 </button>
               </div>
               <div className="controlBar">
-                <input id="dur" type="range" name="rng" min="0" step="0.25" value="3"   style={{width:245}}/>
+                <input className="slider" id="dur" type="range" name="rng" />
               </div>
             </div>
-            
             <div className="trackInfos">
               <div className="trackImage">
                   <img src="https://i.scdn.co/image/ab67616d00001e027e521931327ae0775498fe72" alt="ss" />

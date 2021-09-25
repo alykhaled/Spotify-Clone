@@ -7,16 +7,18 @@
     display: flex;
     flex-direction: column;
     background: $greyLight;
-    
+    position: relative;
     .list{
         display: flex;
         margin: 32px 0px;
         margin-left: 32px;
-        
+        z-index: 100;
     }
 
     h1{
         color: white;
         margin-left: 32px;
+        z-index: 100;
+
     }
 }

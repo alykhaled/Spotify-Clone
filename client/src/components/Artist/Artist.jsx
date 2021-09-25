@@ -47,7 +47,7 @@ function Artist() {
 
             {/* Music Controls */}
             <div className="controls">
-                <button className="playBtn">
+                <button className="roundBtn playBtn">
                     <svg height="32" role="img" width="32" viewBox="0 0 24 24" aria-hidden="true"><polygon points="21.57 12 5.98 3 5.98 21 21.57 12" fill="currentColor"></polygon></svg>
                 </button>
                 <button className="followBtn" >

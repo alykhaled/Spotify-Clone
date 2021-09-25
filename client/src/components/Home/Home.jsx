@@ -43,6 +43,8 @@ function Home() {
 
     return (
         <div className="home">
+            <div className="gradientLayer" style={{backgroundImage:"linear-gradient("+"red"+","+ "#121212"+")"}}>
+            </div>
             <h1>Good afternoon</h1>
             <div className="list">
                 {recenltyPlayed.map(card=>(

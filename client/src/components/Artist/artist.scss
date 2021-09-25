@@ -41,14 +41,7 @@
         .playBtn{
             width: 65px;
             height: 65px;
-            border-radius: 100px;
             background: $greenColor;
-            color: #fff;
-            transition: all 0.05s ease-in-out;
-            border-style: hidden;
-            &:hover{
-                transform: scale(1.08) perspective(1px)
-            }
         }
         height: 65px;
         display: flex;
