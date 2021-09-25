@@ -49,3 +49,16 @@ $greenColor: #1DB954;
     z-index: 5;
     opacity: 0.5;
 }
+
+.smallBtn{
+    background: transparent;
+    border-style: hidden;
+    outline: none;
+    margin: 0 6px;
+    svg{
+        fill: #B3B3B3;
+        &:hover{
+            fill: white;
+        }
+    }
+}

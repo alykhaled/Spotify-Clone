@@ -52,29 +52,41 @@ function App() {
                     <p>Mashrou' Leila</p>                        
                 </div>
               </div>
-              <button type="button" role="switch" aria-checked="false" aria-label="Save to Your Library" class="B77TpDT6WaoYUqQxvy4Z" data-testid="add-button" title="Save to Your Library"><svg role="img" height="32" width="32" viewBox="0 0 32 32" class="Svg-sc-1bi12j5-0 gSLhUO"><path d="M27.672 5.573a7.904 7.904 0 00-10.697-.489c-.004.003-.425.35-.975.35-.564 0-.965-.341-.979-.354a7.904 7.904 0 00-10.693.493A7.896 7.896 0 002 11.192c0 2.123.827 4.118 2.301 5.59l9.266 10.848a3.196 3.196 0 004.866 0l9.239-10.819A7.892 7.892 0 0030 11.192a7.896 7.896 0 00-2.328-5.619zm-.734 10.56l-9.266 10.848c-.837.979-2.508.979-3.346 0L5.035 16.104A6.9 6.9 0 013 11.192 6.9 6.9 0 015.035 6.28a6.935 6.935 0 014.913-2.048 6.89 6.89 0 014.419 1.605A2.58 2.58 0 0016 6.434c.914 0 1.555-.53 1.619-.585a6.908 6.908 0 019.346.431C28.277 7.593 29 9.337 29 11.192s-.723 3.6-2.062 4.941z"></path></svg></button>
+              <button type="button" class="smallBtn" >
+                <svg role="img" height="20" width="20" viewBox="0 0 16 16" class="Svg-sc-1bi12j5-0 gSLhUO"><path d="M13.764 2.727a4.057 4.057 0 00-5.488-.253.558.558 0 01-.31.112.531.531 0 01-.311-.112 4.054 4.054 0 00-5.487.253A4.05 4.05 0 00.974 5.61c0 1.089.424 2.113 1.168 2.855l4.462 5.223a1.791 1.791 0 002.726 0l4.435-5.195A4.052 4.052 0 0014.96 5.61a4.057 4.057 0 00-1.196-2.883zm-.722 5.098L8.58 13.048c-.307.36-.921.36-1.228 0L2.864 7.797a3.072 3.072 0 01-.905-2.187c0-.826.321-1.603.905-2.187a3.091 3.091 0 012.191-.913 3.05 3.05 0 011.957.709c.041.036.408.351.954.351.531 0 .906-.31.94-.34a3.075 3.075 0 014.161.192 3.1 3.1 0 01-.025 4.403z"></path></svg>
+              </button>
             </div>
 
             <div className="controls">
               <div className="controlBtn">
+                <button className="smallBtn">
+                  <svg role="img" height="16" width="16" viewBox="0 0 16 16" class="Svg-sc-1bi12j5-0 gSLhUO"><path d="M4.5 6.8l.7-.8C4.1 4.7 2.5 4 .9 4v1c1.3 0 2.6.6 3.5 1.6l.1.2zm7.5 4.7c-1.2 0-2.3-.5-3.2-1.3l-.6.8c1 1 2.4 1.5 3.8 1.5V14l3.5-2-3.5-2v1.5zm0-6V7l3.5-2L12 3v1.5c-1.6 0-3.2.7-4.2 2l-3.4 3.9c-.9 1-2.2 1.6-3.5 1.6v1c1.6 0 3.2-.7 4.2-2l3.4-3.9c.9-1 2.2-1.6 3.5-1.6z"></path></svg>                
+                </button>
+                <button className="smallBtn">
+                  <svg role="img" height="16" width="16" viewBox="0 0 16 16" class="Svg-sc-1bi12j5-0 gSLhUO"><path d="M13 2.5L5 7.119V3H3v10h2V8.881l8 4.619z"></path></svg>                
+                </button>
                 <button className="roundBtn playBtn">
-                <svg role="img" height="16" width="16" viewBox="0 0 16 16" class="Svg-sc-1bi12j5-0 gSLhUO"><path fill="none" d="M0 0h16v16H0z"></path><path d="M3 2h3v12H3zm7 0h3v12h-3z"></path></svg>
+                  <svg role="img" height="16" width="16" viewBox="0 0 16 16" class="Svg-sc-1bi12j5-0 gSLhUO"><path fill="none" d="M0 0h16v16H0z"></path><path d="M3 2h3v12H3zm7 0h3v12h-3z"></path></svg>
+                </button>
+                <button className="smallBtn">
+                  <svg role="img" height="16" width="16" viewBox="0 0 16 16" class="Svg-sc-1bi12j5-0 gSLhUO"><path d="M11 3v4.119L3 2.5v11l8-4.619V13h2V3z"></path></svg>                
+                </button>
+                <button className="smallBtn">
+                  <svg role="img" height="16" width="16" viewBox="0 0 16 16" class="Svg-sc-1bi12j5-0 gSLhUO"><path d="M5.5 5H10v1.5l3.5-2-3.5-2V4H5.5C3 4 1 6 1 8.5c0 .6.1 1.2.4 1.8l.9-.5C2.1 9.4 2 9 2 8.5 2 6.6 3.6 5 5.5 5zm9.1 1.7l-.9.5c.2.4.3.8.3 1.3 0 1.9-1.6 3.5-3.5 3.5H6v-1.5l-3.5 2 3.5 2V13h4.5C13 13 15 11 15 8.5c0-.6-.1-1.2-.4-1.8z"></path></svg>                
                 </button>
               </div>
               <div className="controlBar">
                 <input className="slider" id="dur" type="range" name="rng" />
               </div>
             </div>
-            <div className="trackInfos">
-              <div className="trackImage">
-                  <img src="https://i.scdn.co/image/ab67616d00001e027e521931327ae0775498fe72" alt="ss" />
-              </div>
-              <div className="trackName">
-                  <p>Aoede</p>
-              </div>
-              <div className="trackArtist">
-                  <p>249,541</p>                        
-              </div>
+
+            <div className="extra">
+              <button className="smallBtn">
+                <svg role="img" height="16" width="16" viewBox="0 0 16 16" class="Svg-sc-1bi12j5-0 gSLhUO"><path d="M4.5 6.8l.7-.8C4.1 4.7 2.5 4 .9 4v1c1.3 0 2.6.6 3.5 1.6l.1.2zm7.5 4.7c-1.2 0-2.3-.5-3.2-1.3l-.6.8c1 1 2.4 1.5 3.8 1.5V14l3.5-2-3.5-2v1.5zm0-6V7l3.5-2L12 3v1.5c-1.6 0-3.2.7-4.2 2l-3.4 3.9c-.9 1-2.2 1.6-3.5 1.6v1c1.6 0 3.2-.7 4.2-2l3.4-3.9c.9-1 2.2-1.6 3.5-1.6z"></path></svg>                
+              </button>
+              <button className="smallBtn">
+                <svg role="img" height="16" width="16" aria-label="Connect to a device" viewBox="0 0 16 16" class="Svg-sc-1bi12j5-0 gSLhUO"><path d="M3.001 12h10c.55 0 1-.45 1-1V3c0-.55-.45-1-1-1h-10c-.55 0-1 .45-1 1v8c0 .55.45 1 1 1zm0-9h10v8h-10V3zm12.5 11H.5c-.275 0-.5.225-.5.5s.225.5.5.5h15.001c.275 0 .5-.225.5-.5s-.225-.5-.5-.5z"></path><path d="M3.001 12h10c.55 0 1-.45 1-1V3c0-.55-.45-1-1-1h-10c-.55 0-1 .45-1 1v8c0 .55.45 1 1 1zm0-9h10v8h-10V3zm12.5 11H.5c-.275 0-.5.225-.5.5s.225.5.5.5h15.001c.275 0 .5-.225.5-.5s-.225-.5-.5-.5z"></path></svg>              
+              </button>
             </div>
           </div>
         </div>
