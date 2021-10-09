@@ -57,7 +57,8 @@ router.get("/:id/tracks" ,async (req,res) => {
                 model:"Album",
                 select: ["-tracks" , "-artist"],
              }
-        }).populate({
+        });
+        await list.populate({
             path:"tracks",
             populate:{
                 path:"artist",
